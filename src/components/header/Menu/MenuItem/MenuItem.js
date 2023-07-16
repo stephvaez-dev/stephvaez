@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Menu from '../Menu';
+import React from 'react';
 import './MenuItem.scss'
 
 const MenuItem = ({ label, isActive, onClick }) => {
