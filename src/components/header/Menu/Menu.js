@@ -2,7 +2,7 @@ import React, { useState, useRef  } from 'react';
 import MenuItem from './MenuItem/MenuItem';
 import './Menu.scss'
 
-const Menu = () => {
+const Menu = ({ menuOpen }) => {
   const [activeItem, setActiveItem] = useState(null);
   const menuRef = useRef(null);
 
@@ -28,7 +28,7 @@ const Menu = () => {
   ];
 
   return (
-    <div className="menu" ref={menuRef}>
+    <div className={`menu ${menuOpen ? 'open' : 'closed'}`} ref={menuRef}>
       {menuItems.map((item) => (
         <MenuItem
           key={item.id}

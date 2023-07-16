@@ -1,21 +1,13 @@
-import React from 'react';
-// Importa otros componentes de página según sea necesario
+import Intro from './Secciones/Intro/Intro';
+import Coleccion from './Secciones/Coleccion/Coleccion';
+import Contacto from './Secciones/Contacto/Contacto';
 
 const Home = () => {
   return (
     <>
-      <div>
-        <h1 className='titulo'>
-              Hola Mundo!!!
-              Esta seria la home principal donde hacemos el famoso scroll de la pagina.
-          </h1>
-          <ol>
-            <li>P</li>
-            <li>U</li>
-            <li>T</li>
-            <li>O</li>
-          </ol>
-      </div>
+      <Intro />
+      <Coleccion />
+      <Contacto />
     </>
   );
 }
