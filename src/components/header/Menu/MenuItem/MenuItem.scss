@@ -1,14 +1,8 @@
 .menu-item {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1; /* Distribuir el espacio disponible de manera uniforme */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  margin-right: 10px; /* Ajusta el valor según tu preferencia */
+  padding: 40px 0px 30px 0px;
   cursor: pointer;
 }
 

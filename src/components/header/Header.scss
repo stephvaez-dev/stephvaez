@@ -1,18 +1,43 @@
 .header{
-  margin-bottom: 25px;
+  position: relative;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
 }
-.menu-toggle {
+
+.logo-container {
+  /* Estilos adicionales para el contenedor del logo */
+}
+
+.logo {
+  width: 100px;
+}
+
+.menu-container{
   position: fixed;
+  top: 10%;
+  left: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.open .menu-container {
+  transform: translateY(0);
+}
+// .menu-container .open{
+//   transition: transform 0.3s ease;
+//   transform: translateX(50%);
+//   position: absolute;
+//   top: 100%;
+//   left: 50%; 
+// }
+
+.menu-toggle {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  transform: translateX(0);
-  transition: transform 0.3s ease-in-out;
 }
 
 .line {
@@ -33,6 +58,5 @@
 }
 
 .open .line:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
   transform: translateX(100%);
 }
