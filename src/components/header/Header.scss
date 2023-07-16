@@ -2,11 +2,7 @@
   position: relative;
   margin: 10px;
   display: flex;
-  justify-content: space-between;
-}
-
-.logo-container {
-  /* Estilos adicionales para el contenedor del logo */
+  justify-content: flex-start;
 }
 
 .logo {
@@ -24,13 +20,6 @@
 .open .menu-container {
   transform: translateY(0);
 }
-// .menu-container .open{
-//   transition: transform 0.3s ease;
-//   transform: translateX(50%);
-//   position: absolute;
-//   top: 100%;
-//   left: 50%; 
-// }
 
 .menu-toggle {
   background-color: transparent;
@@ -38,6 +27,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  margin-right: 25%;
 }
 
 .line {
@@ -49,14 +39,14 @@
 }
 
 .open .line:nth-child(1) {
-  transform: translateX(100%);
+  transform: translateX(80%);
 
 }
 
 .open .line:nth-child(2) {
-  transform: translateX(100%);
+  transform: translateX(80%);
 }
 
 .open .line:nth-child(3) {
-  transform: translateX(100%);
+  transform: translateX(80%);
 }
