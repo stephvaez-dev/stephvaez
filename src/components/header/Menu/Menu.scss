@@ -1,9 +1,21 @@
+@import '/src/components/mixins';
+
 .menu {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: fixed;
-    top: 10%;
-    margin-left:40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+  position: fixed;
+  top: 10%;
+  left: 0;
+  margin-left: 40px;
+  transition: transform 0.3s ease;
+
+  &.open {
+    transform: translateX(0%);
   }
+
+  &.closed {
+    transform: translateX(-150%);
+  }
+}

@@ -31,11 +31,11 @@ const Menu = ({ menuOpen }) => {
     <div className={`menu ${menuOpen ? 'open' : 'closed'}`} ref={menuRef}>
       {menuItems.map((item) => (
         <MenuItem
-          key={item.id}
-          label={item.label}
-          isActive={activeItem === item.id}
-          onClick={() => handleItemClick(item.id)}
-        />
+        key={item.id}
+        label={item.label}
+        isActive={activeItem === item.id}
+        onClick={() => handleItemClick(item.id)}
+      />
       ))} 
     </div>
   );
