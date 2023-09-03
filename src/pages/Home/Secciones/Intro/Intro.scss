@@ -1,6 +1,9 @@
 @import '/src/components/mixins';
 
 .imagen-intro{
+    @include desktop{
+        width: 100%;
+    }
     @include mobile{
         width: 100%;
     }
