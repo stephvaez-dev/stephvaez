@@ -8,3 +8,44 @@
         width: 100%;
     }
 }
+
+.imagen-intro-dos{
+    @include desktop{
+        width: 70%;
+        position: relative;
+        bottom: 100px;
+        right: 45px;
+        padding-left: 100px;
+        border-radius: 30px;
+        z-index: 1000;
+    }
+    @include mobile{
+        width: 70%;
+        position: relative;
+        bottom: 45px;
+        right: 45px;
+        padding-left: 100px;
+        border-radius: 30px;
+        z-index: 1000;
+    }
+}
+
+.imagen-intro-tres-box{
+    @include mobile{
+        position:relative;
+        bottom: 190px;
+    }
+    @include desktop{
+        position:relative;
+        bottom: 300px;
+    }
+}
+
+.imagen-intro-tres{
+    @include desktop{
+        width: 100%;
+    }
+    @include mobile{
+        width: 100%;
+    }
+}

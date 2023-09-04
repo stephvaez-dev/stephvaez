@@ -3,7 +3,8 @@ import './MenuItem.scss'
 
 const MenuItem = ({ label, isActive, onClick }) => {
     const handleClick = () => {
-        onClick();
+      onClick();
+      console.log(isActive);
       };
     
       return (
@@ -13,7 +14,7 @@ const MenuItem = ({ label, isActive, onClick }) => {
           style={{ position: 'relative' }}
           data-item={label.toUpperCase()}
         >
-          {label}
+          <span className="menu-item-label">{label}</span>
           {isActive && <div className="highlight-circle" />}
         </div>
       );

@@ -22,9 +22,8 @@ const Menu = ({ menuOpen }) => {
 
   const menuItems = [
     { id: 1, label: 'INTRO' },
-    { id: 2, label: 'COLLECTION' },
-    { id: 3, label: 'CONTACTO' },
-    // Agrega más ítems de menú según sea necesario
+    { id: 2, label: 'COLECCIÓN' },
+    { id: 3, label: 'CONTACTO' }
   ];
 
   return (
