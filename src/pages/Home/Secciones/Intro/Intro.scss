@@ -1,51 +1,65 @@
 @import '/src/components/mixins';
 
-.imagen-intro{
-    @include desktop{
+.imagen-intro {
+    @include desktop {
         width: 100%;
     }
-    @include mobile{
-        width: 100%;
-    }
-}
 
-.imagen-intro-dos{
-    @include desktop{
-        width: 70%;
+    @include mobile {
+        width: 100%;
         position: relative;
-        bottom: 100px;
-        right: 45px;
-        padding-left: 100px;
-        border-radius: 30px;
-        z-index: 1000;
-    }
-    @include mobile{
-        width: 70%;
-        position: relative;
-        bottom: 45px;
-        right: 45px;
-        padding-left: 100px;
-        border-radius: 30px;
-        z-index: 1000;
+        bottom: 60px;
     }
 }
 
-.imagen-intro-tres-box{
-    @include mobile{
-        position:relative;
-        bottom: 190px;
-    }
-    @include desktop{
-        position:relative;
-        bottom: 300px;
-    }
-}
+.intro-container {
+    position: relative;
 
-.imagen-intro-tres{
-    @include desktop{
-        width: 100%;
-    }
-    @include mobile{
-        width: 100%;
+    .intro-content {
+        position: absolute;
+        top: 35%;
+        left: 5%;
+
+        .intro-title {
+            width: 60%;
+            margin-bottom: 0px;
+            font-weight: bold;
+            font-size: 24px;
+            /* Ajusta el tamaño del título según sea necesario */
+        }
+
+        .intro-description {
+            font-size: 16px;
+            width: 60%;
+        }
+
+        /* Estilo del botón */
+        .intro-button {
+            background-color: #0074D9;
+            /* Color de fondo azul */
+            border: 2px solid #0074D9;
+            /* Borde redondo delicado */
+            border-radius: 10px;
+            /* Borde redondo */
+            color: #ffffff;
+            /* Color de texto blanco */
+            padding: 10px 20px;
+            /* Espaciado interior del botón */
+            font-weight: bold;
+            /* Texto en negrita */
+            cursor: pointer;
+            /* Cambia el cursor al pasar el ratón */
+            transition: background-color 0.3s, color 0.3s;
+            /* Transición suave al cambiar colores */
+        }
+
+        /* Cambio de estilo al pasar el ratón por encima del botón */
+        .intro-button:hover {
+            background-color: #0056b3;
+            /* Cambia el color de fondo al pasar el ratón */
+            color: #ffffff;
+            /* Cambia el color del texto al pasar el ratón */
+        }
+
     }
 }

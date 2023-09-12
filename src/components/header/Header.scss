@@ -1,12 +1,24 @@
 @import '/src/components/mixins';
 
 .header{
-  position: relative;
-  display: flex;
-  padding: 15px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(247, 232, 214);
+  @include mobile{
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    margin-top: 10px;
+  }
+  @include desktop{
+    position: fixed;
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
 }
 
 .header img{
