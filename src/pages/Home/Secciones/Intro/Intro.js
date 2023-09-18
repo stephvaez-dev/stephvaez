@@ -1,13 +1,12 @@
 import React from 'react';
 import './Intro.scss';
-import introImageDesktop from '../../../../assets/images/photo-intro.jpeg';
-import introImageDosDesktop from '../../../../assets/images/imagen-intro-dos.JPG'
-import introImageTresDesktop from '../../../../assets/images/ro_steff.JPG'
+import introImageDesktop from '../../../../assets/images/intro.jpg';
 import introImageMobile from '../../../../assets/images/intro_mobile.png';
 
 const Intro = () => {
+
   return (
-    <section className='intro-container'>
+    <section id='intro' className='intro-container'>
       <img className='imagen-intro' src={introImageMobile} alt="Imagen de introducción" />
       <div className='intro-content'>
         <h1 className='intro-title'>La moda urbana que estabas buscando</h1>

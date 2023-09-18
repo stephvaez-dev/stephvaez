@@ -1,18 +1,19 @@
-import React, { useState, useRef  } from 'react';
+import React, { useState, useRef } from 'react';
 import MenuItem from './MenuItem/MenuItem';
-import './Menu.scss'
+import './Menu.scss';
 
 const Menu = ({ menuOpen }) => {
   const [activeItem, setActiveItem] = useState(null);
   const menuRef = useRef(null);
 
-  const handleItemClick = (item) => {
+  const handleItemClick = (item, targetId) => {
     setActiveItem(item);
 
-    if (menuRef.current) {
-      const menuItem = menuRef.current.querySelector(`[data-item="${item}"]`);
-      if (menuItem) {
-        menuItem.scrollIntoView({
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
         });
@@ -21,21 +22,21 @@ const Menu = ({ menuOpen }) => {
   };
 
   const menuItems = [
-    { id: 1, label: 'INTRO' },
-    { id: 2, label: 'COLECCIÓN' },
-    { id: 3, label: 'CONTACTO' }
+    { id: 1, label: 'INTRO', targetId: 'intro' },
+    { id: 2, label: 'COLECCIÓN', targetId: 'coleccion' },
+    { id: 3, label: 'CONTACTO', targetId: 'contacto' },
   ];
 
   return (
     <div className={`menu ${menuOpen ? 'open' : 'closed'}`} ref={menuRef}>
       {menuItems.map((item) => (
         <MenuItem
-        key={item.id}
-        label={item.label}
-        isActive={activeItem === item.id}
-        onClick={() => handleItemClick(item.id)}
-      />
-      ))} 
+          key={item.id}
+          label={item.label}
+          isActive={activeItem === item.id}
+          onClick={() => handleItemClick(item.id, item.targetId)}
+        />
+      ))}
     </div>
   );
 };

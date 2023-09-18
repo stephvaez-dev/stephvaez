@@ -10,7 +10,7 @@ const Header = () => {
 
   // Definir una variable para el icono del botón
   const menuButtonIcon = menuOpen ? (
-    <img src={cruzIcon} alt="Cerrar"  className='cruzIcon'/>
+    <img src={cruzIcon} alt="Cerrar" className='cruzIcon' />
   ) : (
     <>
       <span className="line"></span>
@@ -23,7 +23,7 @@ const Header = () => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
         setMenuOpen(false); // Cerrar el menú cuando cambia el tamaño de la ventana
-      }else{
+      } else {
         setMenuOpen(true);
       }
     };
@@ -39,15 +39,21 @@ const Header = () => {
 
   return (
     <div className="header">
-      {window.innerWidth <= 768 && (
-        <button className={`menu-toggle ${menuOpen ? 'open' : 'closed'}`} onClick={() => setMenuOpen(!menuOpen)}>
-          {menuButtonIcon}
-        </button>
-      )}
-      <img src={logo} alt="Logo" className="logo" />
+      <div className="headerContainer">
+        {window.innerWidth <= 768 && (
+          <div className="buttonContainer">
+            <button className={`menu-toggle ${menuOpen ? 'open' : 'closed'}`} onClick={() => setMenuOpen(!menuOpen)}>
+              {menuButtonIcon}
+            </button>
+          </div>
+        )}
+        <div className="logoContainer">
+          <img src={logo} alt="Logo" className="logo" />
+        </div>
+      </div>
       <Menu menuOpen={menuOpen} />
     </div>
-  );
+  );  
 };
 
 export default Header;

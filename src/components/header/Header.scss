@@ -1,6 +1,7 @@
 @import '/src/components/mixins';
 
 .header{
+  /* RESOLUCION MOBILE */
   @include mobile{
     position: fixed;
     display: flex;
@@ -9,7 +10,51 @@
     align-items: center;
     z-index: 1000;
     margin-top: 10px;
+    .headerContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Centra el contenido horizontalmente */
+      align-items: center; /* Centra el contenido verticalmente */
+      .buttonContainer {
+        width: 45%;  /* Empuja el botón hacia la izquierda */
+        .menu-toggle {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          transition: transform 0.3s ease;
+          margin-left: 10px;
+          &.open {
+            transform: translateX(150%);
+          }
+          .line {
+            width: 25px;
+            height: 2px;
+            background-color: black;
+            transition: transform 0.3s ease;
+            margin-bottom: 5px;
+          }
+          .cruzIcon{
+            width: 25px !important;
+            height: 20px;
+            
+          }
+        }
+      }
+      .logoContainer {
+        width: 95% ;/* Empuja el logo hacia la derecha */
+        img{
+          width: 140px;
+          height: 35px;
+          text-align: center !important;
+          margin: 0 auto;
+        }
+      }
   }
+}
+
+  /* RESOLUCION DESKTOP */
   @include desktop{
     position: fixed;
     display: flex;
@@ -18,59 +63,22 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
+    .headerContainer{
+      width: 100%;
+      .logoContainer{
+        width: 100%;
+        text-align: center;
+        .logo {
+          width: 200px;
+        }
+      }
+    }
   }
 }
 
-.header img{
-  @include desktop{
-    width: 100px;
-    text-align: center !important;
-    margin: 0 auto;
-  }
-  @include mobile{
-    width: 100px;
-    text-align: center !important;
-    margin: 0 auto;
-  }
-}
 
-.logo {
-  width: 100px;
-  margin-left: 15%;
-}
 
-.menu-toggle {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-}
 
-.line {
-  width: 25px;
-  height: 2px;
-  background-color: black;
-  transition: transform 0.3s ease;
-  margin-bottom: 5px;
-}
 
-.open .line:nth-child(1) {
-  transform: translateX(80%);
 
-}
 
-.open .line:nth-child(2) {
-  transform: translateX(80%);
-}
-
-.open .line:nth-child(3) {
-  transform: translateX(80%);
-}
-
-.cruzIcon{
-  @include mobile{
-    width: 25px !important;
-    height: 20px;
-  }
-}
