@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Coleccion = () => {
-  return
-  <div id='coleccion'>
+  return(
+    <div id='coleccion'>
 
-  </div>
+    </div>
+  );
 }
 
 export default Coleccion;
