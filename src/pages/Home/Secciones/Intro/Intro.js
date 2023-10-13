@@ -1,6 +1,5 @@
 import React from 'react';
 import './Intro.scss';
-import introImageDesktop from '../../../../assets/images/intro.jpg';
 import introImageMobile from '../../../../assets/images/intro_mobile.png';
 
 const Intro = () => {
