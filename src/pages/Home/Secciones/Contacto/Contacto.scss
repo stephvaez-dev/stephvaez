@@ -2,12 +2,11 @@
 
 .contact-section {
     @include mobile {
-        background-color: black;
-        color: white;
-        padding: 40px 0;
-        height: 300px;
-        width: 100%;
+        background-color: #000000;
+        padding: 20px;
         display: flex;
+        justify-content: center;
+        align-items: center;
         .container {
             margin: 0 auto;
             display: flex;

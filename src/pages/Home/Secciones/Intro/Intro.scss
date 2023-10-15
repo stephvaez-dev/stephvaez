@@ -7,8 +7,7 @@
 
     @include mobile {
         width: 100%;
-        position: relative;
-        bottom: 60px;
+        max-height: 100%;
     }
 }
 

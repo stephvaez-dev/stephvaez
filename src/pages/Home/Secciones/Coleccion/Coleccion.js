@@ -1,15 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { setAccessToken } from '../../../../store/actions/authActions'; 
 import { obtenerTokenDeAcceso } from '../../../../services/auth';
-import axios from 'axios'; // Asegúrate de importar axios
+import Card from '../../../../components/cards/cardCategory';
+import './Coleccion.scss';
+import axios from 'axios';
 
-const Coleccion = () => {
+const Coleccion = ({ accessToken, setAccessToken }) => {
   const dispatch = useDispatch();
-  const accessToken = useSelector(state => state.auth.accessToken);
   const [categorias, setCategorias] = useState([]);
   const email = process.env.REACT_APP_EMAIL;
   const password = process.env.REACT_APP_PASSWORD;
+
+  const obtenerCategorias = (token) => {
+    // Usamos axios para realizar la solicitud de categorías con el token
+    axios.post('https://storemanager.local/api/getCategories', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(response => {
+      console.log('Respuesta de la API Categorias', response.data);
+      setCategorias(response.data);
+    })
+    .catch(error => {
+      // Manejo de errores
+    });
+  };
 
   useEffect(() => {
     // Primero, verificamos si ya tenemos un token en el estado de Redux
@@ -30,31 +47,27 @@ const Coleccion = () => {
     }
   }, [accessToken, dispatch]);
 
-  const obtenerCategorias = (token) => {
-    // Usamos axios para realizar la solicitud de categorías con el token
-    axios.get('http://storemanager.local/api/getCategories', {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-    .then(response => {
-      setCategorias(response.data);
-      console.log(response.data);
-    })
-    .catch(error => {
-      // Manejo de errores
-    });
-  };
-
   return (
     <div id="coleccion">
-      <ul>
-        {categorias.map(categoria => (
-          <li key={categoria.id}>{categoria.nombre}</li>
-        ))}
-      </ul>
+      <h1>Colecciones</h1>
+      {categorias.map(categoria => (
+        <Card
+          key={categoria.id}
+          title={categoria.nombre}
+          description={categoria.descripcion}
+          linkTo={`categorias-${categoria.id}`} // Cambia la URL según tu enrutamiento
+        />
+      ))}
     </div>
   );
 };
 
-export default Coleccion;
+const mapStateToProps = (state) => ({
+  accessToken: state.auth.accessToken
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setAccessToken: (token) => dispatch(setAccessToken(token))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Coleccion);
