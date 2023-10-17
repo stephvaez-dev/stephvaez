@@ -10,12 +10,18 @@ export async function obtenerTokenDeAcceso(email, password) {
   }
 }
 
-export const obtenerCategorias = (token) => {
-    return axios.post('https://storemanager.local/api/getCategories', {
+export async function obtenerCategorias(token) {
+  try {
+    const response = await axios.post('https://storemanager.local/api/getCategories', null, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
-        'Accept': 'application/json' 
+        'Accept': 'application/json'
       }
     });
-  };
+    return response.data;
+  } catch (error) {
+    throw new Error('Error al obtener categorías');
+  }
+}
+

@@ -5,14 +5,14 @@ const initialState = {
 };
 
 export function categoryReducer(state = initialState, action) {
-    switch (action.type) {
-      case SET_CATEGORIES:
-        return {
-          ...state,
-          categories: action.categories,
-        };
-      default:
-        return state;
-    }
+  switch (action.type) {
+    case SET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.categories,
+      };
+    default:
+      return state;
   }
+}
 

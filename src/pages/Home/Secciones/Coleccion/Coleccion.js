@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { setAccessToken } from '../../../../store/actions/authActions';
 import { setCategories } from '../../../../store/actions/categoryActions'; 
 import { obtenerTokenDeAcceso, obtenerCategorias } from '../../../../services/storeManagerService';
@@ -11,30 +12,45 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
   const dispatch = useDispatch();
   const email = process.env.REACT_APP_EMAIL;
   const password = process.env.REACT_APP_PASSWORD;
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!accessToken) {
-      obtenerTokenDeAcceso(email, password)
-        .then(token => {
-          dispatch(setAccessToken(token));
-          obtenerCategorias(token)
-            .then(response => {
-              setCategories(response.data);
-            })
-            .catch(error => {
-              console.error('Error al obtener categorías:', error);
-            });
-        })
-        .catch(error => {
-          console.error('Error al obtener el token de acceso:', error);
-        });
-    }
-  }, [accessToken, dispatch]);
 
+    const fetchData = async () => {
+      try {
+        if (!accessToken) {
+          const token = await obtenerTokenDeAcceso(email, password);
+          dispatch(setAccessToken(token));
+          const response = await obtenerCategorias(token);
+          dispatch(setCategories(response.data));
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        setIsLoading(false);
+      }
+    };
+  
+    fetchData();
+  }, [accessToken, dispatch]);
+  
+
+  if (isLoading) {
+    // Muestra un indicador de carga mientras se obtienen los datos
+    return (
+      <div id='coleccion'>
+        <h1>Colecciones</h1>
+        <div>
+          Cargando...
+        </div>
+      </div>
+    );
+  }
+  console.log(categories);
   return (
     <div id="coleccion">
       <h1>Colecciones</h1>
-      {categories.map(category => (
+      {categories && categories.map(category => (
         <Card
           key={category.id}
           title={category.nombre}
@@ -45,6 +61,15 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
     </div>
   );
 };
+
+// Define las propTypes para las props esperadas
+Coleccion.propTypes = {
+  accessToken: PropTypes.string,
+  setAccessToken: PropTypes.func,
+  categories: PropTypes.array, 
+  setCategories: PropTypes.func, 
+};
+
 
 const mapStateToProps = (state) => ({
   accessToken: state.auth.accessToken,
