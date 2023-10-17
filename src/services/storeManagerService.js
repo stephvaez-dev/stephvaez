@@ -9,3 +9,13 @@ export async function obtenerTokenDeAcceso(email, password) {
     throw new Error('Error al obtener el token de acceso');
   }
 }
+
+export const obtenerCategorias = (token) => {
+    return axios.post('https://storemanager.local/api/getCategories', {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json' 
+      }
+    });
+  };

@@ -1,4 +1,4 @@
-import { SET_ACCESS_TOKEN } from '../actions/authActions';
+import { SET_ACCESS_TOKEN } from '../../constants/actionTypes';
 
 const initialState = {
   accessToken: null,
