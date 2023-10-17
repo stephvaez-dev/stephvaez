@@ -6,7 +6,7 @@ import { obtenerTokenDeAcceso, obtenerCategorias } from '../../../../services/st
 import Card from '../../../../components/cards/cardCategory';
 import './Coleccion.scss';
 
-const Coleccion = ({ accessToken, categories, setAccessToken, setCategories }) => {
+const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) => {
 
   const dispatch = useDispatch();
   const email = process.env.REACT_APP_EMAIL;
