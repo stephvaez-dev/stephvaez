@@ -1,64 +1,66 @@
 @import '/src/components/mixins';
 
-.imagen-intro {
-    @include desktop {
-        width: 100%;
-    }
-
-    @include mobile {
-        width: 100%;
-        max-height: 100%;
-    }
-}
-
 .intro-container {
-    position: relative;
-
-    .intro-content {
-        position: absolute;
-        top: 35%;
-        left: 5%;
-
-        .intro-title {
-            width: 60%;
-            margin-bottom: 0px;
-            font-weight: bold;
-            font-size: 24px;
-            /* Ajusta el tamaño del título según sea necesario */
+    height: auto;
+    @include desktop{
+        .imagen-intro{
+            width: 100%;
+            display: none;
         }
-
-        .intro-description {
-            font-size: 16px;
-            width: 60%;
+        .intro-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10%;
+            margin-bottom: 10%;
+            margin-left: 15%;
+            .intro-title {
+                width: 80%;
+                font-weight: bold;
+                font-size: 100px;
+            }
+    
+            .intro-description {
+                font-size: 25px;
+                width: 60%;
+                margin-bottom: 20px;
+            }
+    
+            /* Estilo del botón */
+            .intro-button {
+                width: 15%;
+                background-color: #0074D9;
+                /* Color de fondo azul */
+                border: 2px solid #0074D9;
+                /* Borde redondo delicado */
+                border-radius: 10px;
+                /* Borde redondo */
+                color: #ffffff;
+                /* Color de texto blanco */
+                padding: 10px 20px;
+                /* Espaciado interior del botón */
+                font-weight: bold;
+                /* Texto en negrita */
+                cursor: pointer;
+                /* Cambia el cursor al pasar el ratón */
+                transition: background-color 0.3s, color 0.3s;
+                /* Transición suave al cambiar colores */
+            }
+    
+            /* Cambio de estilo al pasar el ratón por encima del botón */
+            .intro-button:hover {
+                background-color: #0056b3;
+                /* Cambia el color de fondo al pasar el ratón */
+                color: #ffffff;
+                /* Cambia el color del texto al pasar el ratón */
+            }
+    
         }
+    }
 
-        /* Estilo del botón */
-        .intro-button {
-            background-color: #0074D9;
-            /* Color de fondo azul */
-            border: 2px solid #0074D9;
-            /* Borde redondo delicado */
-            border-radius: 10px;
-            /* Borde redondo */
-            color: #ffffff;
-            /* Color de texto blanco */
-            padding: 10px 20px;
-            /* Espaciado interior del botón */
-            font-weight: bold;
-            /* Texto en negrita */
-            cursor: pointer;
-            /* Cambia el cursor al pasar el ratón */
-            transition: background-color 0.3s, color 0.3s;
-            /* Transición suave al cambiar colores */
+    @include mobile{
+        .imagen-intro{
+            width: 100%;
+            max-height: 100%;
         }
-
-        /* Cambio de estilo al pasar el ratón por encima del botón */
-        .intro-button:hover {
-            background-color: #0056b3;
-            /* Cambia el color de fondo al pasar el ratón */
-            color: #ffffff;
-            /* Cambia el color del texto al pasar el ratón */
-        }
-
     }
 }

@@ -6,9 +6,11 @@ const cardCategory = ({ title, description, linkTo }) => {
   return (
     <div className="card">
       <div className="card-body">
-        <h5 className="card-title">{title}</h5>
+        <span className="card-title">{title}</span>
         <p className="card-text">{description}</p>
-        <Link to={linkTo} className="btn btn-primary">Ver Detalles</Link>
+        <div className='ver-detalles-buttom'>
+          <Link to={linkTo} className="btn btn-primary">Ver Detalles</Link>
+        </div>
       </div>
     </div>
   );

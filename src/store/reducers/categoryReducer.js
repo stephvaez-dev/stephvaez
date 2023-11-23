@@ -9,7 +9,7 @@ export function categoryReducer(state = initialState, action) {
     case SET_CATEGORIES:
       return {
         ...state,
-        categories: action.categories,
+        categories: action.payload,
       };
     default:
       return state;

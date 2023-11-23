@@ -13,7 +13,8 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
   const email = process.env.REACT_APP_EMAIL;
   const password = process.env.REACT_APP_PASSWORD;
   const [isLoading, setIsLoading] = useState(true);
-
+  
+  
   useEffect(() => {
 
     const fetchData = async () => {
@@ -22,7 +23,7 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
           const token = await obtenerTokenDeAcceso(email, password);
           dispatch(setAccessToken(token));
           const response = await obtenerCategorias(token);
-          dispatch(setCategories(response.data));
+          dispatch(setCategories(response));
           setIsLoading(false);
         }
       } catch (error) {
@@ -33,8 +34,10 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
   
     fetchData();
   }, [accessToken, dispatch]);
-  
 
+  console.log('Props categories:', categories); // Agrega esta línea
+
+  
   if (isLoading) {
     // Muestra un indicador de carga mientras se obtienen los datos
     return (
@@ -46,16 +49,16 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
       </div>
     );
   }
-  console.log(categories);
+  
   return (
     <div id="coleccion">
-      <h1>Colecciones</h1>
+      <span className='title'>Colecciones</span>
       {categories && categories.map(category => (
         <Card
-          key={category.id}
+          key={category.idcategoria}
           title={category.nombre}
           description={category.descripcion}
-          linkTo={`categorias-${category.id}`}
+          linkTo={`categorias-${category.idcategoria}`}
         />
       ))}
     </div>

@@ -1,6 +1,7 @@
 @import '/src/components/mixins';
 
 .contact-section {
+    height: auto;
     @include mobile {
         background-color: #000000;
         padding: 20px;
