@@ -3,14 +3,14 @@
 .card {
   @include desktop{
     width: 100%;
-    height: 500px;
+    height: 700px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     background-color: #71b3d3;
     border: 1px solid #0056b3;
     .card-body{
-      margin-top: 10%;
-      margin-bottom: 10%;
+      margin-top: 17%;
+      margin-bottom: 17%;
       .card-title {
         font-size: 50px;
       }
@@ -40,27 +40,39 @@
     }
   }
 
-  @include mobile {
-    .card-body {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
+  @include mobile{
+    width: 100%;
+    height: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #71b3d3;
+    border: 1px solid #0056b3;
+    .card-body{
+      margin-top: 55%;
       .card-title {
-        font-size: 1.5rem; // Tamaño de fuente más grande para el título en dispositivos móviles
+        font-size: 30px;
       }
       .card-text {
-        font-size: 1rem; // Tamaño de fuente más grande para el texto en dispositivos móviles
+        font-size: 17px;
+        margin-top: 10%;
+        margin-bottom: 10%;
       }
-      .btn {
-        background-color: #007bff; // Color de fondo del botón
-        color: #fff; // Color del texto del botón
-        border: none; // Sin borde
-        border-radius: 4px; // Bordes redondeados para el botón
-        cursor: pointer;
-        transition: background-color 0.3s; // Efecto de transición al pasar el mouse
-    
-        &:hover {
-          background-color: #0056b3; // Color de fondo al pasar el mouse
+      .ver-detalles-buttom{
+        margin-bottom: 30px;
+        .btn {
+          display: inline-block;
+          width: 30%;
+          padding: 15px;
+          background-color: #007bff; // Color de fondo del botón
+          color: #fff; // Color del texto del botón
+          border: none; // Sin borde
+          border-radius: 4px; // Bordes redondeados para el botón
+          cursor: pointer;
+          transition: background-color 0.3s; // Efecto de transición al pasar el mouse
+      
+          &:hover {
+            background-color: #0056b3; // Color de fondo al pasar el mouse
+          }
         }
       }
     }
