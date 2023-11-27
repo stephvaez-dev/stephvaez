@@ -5,7 +5,7 @@
   @include mobile{
     position: relative;
     display: flex;
-    width: 100%;
+    width: auto;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
@@ -58,7 +58,7 @@
   @include desktop{
     position: relative;
     display: flex;
-    width: 100%;
+    width: auto;
     padding: 15px;
     justify-content: space-between;
     align-items: center;
