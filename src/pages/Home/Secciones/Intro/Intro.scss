@@ -3,6 +3,10 @@
 .intro-container {
     height: auto;
     @include desktop{
+        background-image: url('../../../../assets/images/intro_desktop.jpg');
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+        background-position: center; /* Centra la imagen en el fondo */
+        background-repeat: no-repeat;
         .intro-content {
             display: flex;
             flex-direction: column;
@@ -63,7 +67,6 @@
             display: flex;
             flex-direction: column;
             margin-top: 25%;
-            margin-bottom: 10%;
             margin-left: 5%;
             .intro-title {
                 width: 100%;

@@ -5,6 +5,7 @@ import './Menu.scss';
 const Menu = ({ menuOpen }) => {
   const [activeItem, setActiveItem] = useState(null);
   const menuRef = useRef(null);
+  const [ setMenuOpen ] = useState(false);
 
   const handleItemClick = (item, targetId) => {
     setActiveItem(item);
@@ -19,6 +20,10 @@ const Menu = ({ menuOpen }) => {
         });
       }
     }
+
+    // Ocultar el menú después de hacer clic en un elemento
+    setMenuOpen(false);
+
   };
 
   const menuItems = [
