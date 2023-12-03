@@ -1,7 +1,7 @@
 import React from 'react';
 import './Intro.scss';
-import Header from '../../../../components/header/Header';
-import Menu from '../../../../components/Menu/Menu';
+import Header from '../../../components/header/Header';
+import Menu from '../../../components/Menu/Menu';
 
 const Intro = () => {
 

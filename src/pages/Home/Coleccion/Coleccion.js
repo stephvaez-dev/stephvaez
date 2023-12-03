@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAccessToken } from '../../../../store/actions/authActions';
-import { setCategories } from '../../../../store/actions/categoryActions'; 
-import { obtenerTokenDeAcceso, obtenerCategorias } from '../../../../services/storeManagerService';
-import Card from '../../../../components/cards/cardCategory';
+import { setAccessToken } from '../../../store/actions/authActions';
+import { setCategories } from '../../../store/actions/categoryActions'; 
+import { obtenerTokenDeAcceso, obtenerCategorias } from '../../../services/storeManagerService';
+import Card from '../../../components/cards/CardCategory/cardCategory';
 import './Coleccion.scss';
 
 const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) => {

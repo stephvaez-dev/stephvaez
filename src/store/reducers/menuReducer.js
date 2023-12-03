@@ -5,7 +5,7 @@ const initialState = {
   menuOpen: false,
 };
 
-const menuReducer = (state = initialState, action) => {
+export function menuReducer(state = initialState, action) {
   switch (action.type) {
     case SET_MENU_OPEN:
       return {
@@ -16,5 +16,3 @@ const menuReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default menuReducer;

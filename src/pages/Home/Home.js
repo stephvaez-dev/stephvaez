@@ -1,6 +1,6 @@
-import Intro from './Secciones/Intro/Intro';
-import Coleccion from './Secciones/Coleccion/Coleccion';
-import Contacto from './Secciones/Contacto/Contacto';
+import Intro from './Intro/Intro';
+import Coleccion from './Coleccion/Coleccion';
+import Contacto from './Contacto/Contacto';
 
 const Home = () => {
   return (
