@@ -1,0 +1,74 @@
+@import '/src/components/mixins';
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  //z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+  @include mobile{
+    transition: transform 0.3s ease;
+    width: 150px;
+    height: 100%;
+    .menu-toggle-container {
+      width: 45%;  /* Empuja el botón hacia la izquierda */
+      .menu-toggle {
+        position: fixed;
+        top: 1.5%;
+        right: 85%;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+        &.open {
+          transform: translateX(150%);
+        }
+        .line {
+          width: 35px;
+          height: 5px;
+          background-color: white;
+          transition: transform 0.3s ease;
+          margin-bottom: 5px;
+        }
+        .cruzIcon{
+          width: 35px !important;
+          height: 30px;
+          background-color: white;
+          
+        }
+      }
+    }
+
+    .menu-list{
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      .item-list{
+       width: 100%; 
+      }
+    }
+
+    &.open {
+      transform: translateX(0%);
+    }
+    
+    &.closed {
+      transform: translateX(-150%);
+    }
+  }
+
+  @include desktop{
+    display: block;
+    margin-left: 30px;
+    width:150px;
+  }
+
+}
