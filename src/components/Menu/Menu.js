@@ -1,13 +1,29 @@
-import React, {useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setMenuOpen } from '../../store/actions/menuActions';  // Ajusta la importación según tu estructura de archivos
 import MenuItem from './MenuItem/MenuItem';
 import './Menu.scss';
 import cruzIcon from '../../assets/images/cruz.png';
 
-
-const Menu = () => {
+const Menu = ({ menuOpen, setMenuOpen }) => {
   const [activeItem, setActiveItem] = useState(null);
-  const menuRef = useRef(null);
-  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setMenuOpen(false); // Cerrar el menú cuando cambia el tamaño de la ventana
+      } else {
+        setMenuOpen(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [setMenuOpen]);
 
   const handleItemClick = (item, targetId) => {
     setActiveItem(item);
@@ -23,9 +39,7 @@ const Menu = () => {
       }
     }
 
-    // Ocultar el menú después de hacer clic en un elemento
     setMenuOpen(false);
-
   };
 
   const menuItems = [
@@ -34,7 +48,6 @@ const Menu = () => {
     { id: 3, label: 'CONTACTO', targetId: 'contacto' },
   ];
 
-  // Definir una variable para el icono del botón
   const menuButtonIcon = menuOpen ? (
     <img src={cruzIcon} alt="Cerrar" className='cruzIcon' />
   ) : (
@@ -45,26 +58,8 @@ const Menu = () => {
     </>
   );
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setMenuOpen(false); // Cerrar el menú cuando cambia el tamaño de la ventana
-      } else {
-        setMenuOpen(true);
-      }
-    };
-
-    // Agregar el event listener para el cambio de tamaño de ventana
-    window.addEventListener('resize', handleResize);
-
-    // Limpieza del event listener cuando el componente se desmonta
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
-    <div className={`menu ${menuOpen ? 'open' : 'closed'}`} ref={menuRef}>
+    <div className={`menu ${menuOpen ? 'open' : 'closed'}`}>
       {window.innerWidth <= 768 && (
         <div className="menu-toggle-container">
           <button className={`menu-toggle ${menuOpen ? 'open' : 'closed'}`} onClick={() => setMenuOpen(!menuOpen)}>
@@ -72,7 +67,7 @@ const Menu = () => {
           </button>
         </div>
       )}
-      <ul className='menu-list' >
+      <ul className='menu-list'>
         {menuItems.map((item) => (
           <li className='item-list' key={item.id}>
             <MenuItem
@@ -87,4 +82,17 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+Menu.propTypes = {
+  menuOpen: PropTypes.bool,
+  setMenuOpen: PropTypes.func,
+};
+
+const mapStateToProps = (state) => ({
+  menuOpen: state.menu.menuOpen,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setMenuOpen: (isOpen) => dispatch(setMenuOpen(isOpen)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

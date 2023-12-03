@@ -4,7 +4,8 @@ import { categoryReducer } from './categoryReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  category: categoryReducer
+  category: categoryReducer,
+  menu: menuReducer,
 });
 
 export default rootReducer;
