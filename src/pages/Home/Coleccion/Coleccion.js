@@ -52,7 +52,6 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
   
   return (
     <div id="coleccion">
-      <span className='title'>Colecciones</span>
       {categories && categories.map(category => (
         <Card
           key={category.idcategoria}

@@ -35,13 +35,12 @@
     display: flex;
     width: auto;
     padding: 15px;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     z-index: 1000;
     .headerContainer{
-      width: 100%;
       .logoContainer{
-        width: 100%;
+        background-color: white;
+        width: auto;
         text-align: center;
         .logo {
           width: 300px;

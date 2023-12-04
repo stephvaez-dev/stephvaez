@@ -58,6 +58,13 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
     </>
   );
 
+
+  /**
+   * El div menu tiene una clase open y closed que varia segun si el menu esta abierto o cerrado
+   * menuOpen = true (Esta abierto)
+   * menuOpen = false (Esta cerrado)
+   */
+
   return (
     <div className={`menu ${menuOpen ? 'open' : 'closed'}`}>
       {window.innerWidth <= 768 && (

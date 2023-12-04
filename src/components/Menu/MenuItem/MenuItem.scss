@@ -1,3 +1,5 @@
+@import '/src/components/mixins';
+
 .menu-item {
   display: flex;
   align-items: center;
@@ -6,21 +8,42 @@
   cursor: pointer;
 }
 
-.menu-item::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 20px;
-  width: 100%; /* La línea ocupará todo el ancho del ítem */
-  height: 1px; /* Altura de la línea divisoria */
-  background-color: #000; /* Color de la línea divisoria (ajusta según tu diseño) */
+
+@include desktop{
+  .menu-item-label{
+    font-size: 25px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    color:white;
+    transition: transform 0.2s ease-in-out; /* Agregamos una transición para suavizar el efecto */
+  }
+
+  .menu-item-label:hover {
+    transform: scale(1.5); /* Por ejemplo, escala el elemento al 110% al pasar el ratón sobre él */
+  }
+
+  .menu-item-label:active {
+    transform: scale(0.9); /* Cuando se hace clic, escala el elemento al 90% para dar una sensación de presionado */
+  }
 }
 
-.menu-item-label{
-  font-size: 15px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  color:white;
+@include mobile{
+  .menu-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%; /* La línea ocupará todo el ancho del ítem */
+    height: 1px; /* Altura de la línea divisoria */
+    background-color: #000; /* Color de la línea divisoria (ajusta según tu diseño) */
+  }
+  .menu-item-label{
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    color:white;
+    transition: transform 0.2s ease-in-out; /* Agregamos una transición para suavizar el efecto */
+  }
 }
 
 

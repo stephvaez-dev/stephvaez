@@ -8,20 +8,17 @@
   position: fixed;
   top: 0%;
   left: 0;
-  //z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  
+
   @include mobile{
     transition: transform 0.3s ease;
     width: 150px;
     height: 100%;
+    background-color: rgba(7, 7, 7, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     .menu-toggle-container {
-      width: 45%;  /* Empuja el botón hacia la izquierda */
+      width: 100%;  /* Empuja el botón hacia la izquierda */
       .menu-toggle {
         position: fixed;
-        top: 1.5%;
-        right: 85%;
         background-color: transparent;
         border: none;
         cursor: pointer;
@@ -29,7 +26,12 @@
         flex-direction: column;
         transition: transform 0.3s ease;
         &.open {
-          transform: translateX(150%);
+          top: 1.0%;
+          left: 65%;
+        }
+        &.closed {
+          top: 1.0%;
+          left: 155%;
         }
         .line {
           width: 35px;
@@ -69,8 +71,14 @@
 
   @include desktop{
     display: block;
-    margin-left: 30px;
-    width:150px;
+    height: 100%;
+    width:250px;
+    .menu-list{
+      position: fixed;
+      top: 5%;  
+      width: 250px;
+      margin: 0;
+      padding: 0;
+    }
   }
-
 }
