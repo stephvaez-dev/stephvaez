@@ -12,7 +12,7 @@ const cardCategory = ({ title, description, linkTo, backgroundImage}) => {
     <div className="card" style={cardStyle}>
       <div className="card-body">
         <span className="card-title">{title}</span>
-        <p className="card-text">{description}</p>
+        <span className="card-text">{description}</span>
         <div className='ver-detalles-buttom'>
           <Link to={linkTo} className="btn btn-primary">Ver Detalles</Link>
         </div>
