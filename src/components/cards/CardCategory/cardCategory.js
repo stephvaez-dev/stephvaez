@@ -2,9 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './cardCategory.scss';
 
-const cardCategory = ({ title, description, linkTo }) => {
+const cardCategory = ({ title, description, linkTo, backgroundImage}) => {
+
+  const cardStyle = {
+    backgroundImage: `url(https://storemanager.local/imagenes/categorias/${backgroundImage}`,
+  };
+
   return (
-    <div className="card">
+    <div className="card" style={cardStyle}>
       <div className="card-body">
         <span className="card-title">{title}</span>
         <p className="card-text">{description}</p>

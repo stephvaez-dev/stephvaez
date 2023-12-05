@@ -49,7 +49,7 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
       </div>
     );
   }
-  
+  console.log(categories);
   return (
     <div id="coleccion">
       {categories && categories.map(category => (
@@ -58,6 +58,7 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
           title={category.nombre}
           description={category.descripcion}
           linkTo={`categorias-${category.idcategoria}`}
+          backgroundImage={category.imagen}
         />
       ))}
     </div>
