@@ -3,9 +3,9 @@
 .header{
   /* RESOLUCION MOBILE */
   @include mobile{
-    position: relative;
+    position: absolute;
     display: flex;
-    width: auto;
+    width: 95%;
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
@@ -31,9 +31,9 @@
 
   /* RESOLUCION DESKTOP */
   @include desktop{
-    position: relative;
+    position: absolute;
     display: flex;
-    width: auto;
+    width: 95%;
     padding: 15px;
     justify-content: center;
     z-index: 1000;

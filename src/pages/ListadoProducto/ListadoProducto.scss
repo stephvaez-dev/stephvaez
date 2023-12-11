@@ -1,0 +1,14 @@
+/* ListadoProducto.css */
+.productos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaciado entre las tarjetas */
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  
+  .productos-lista > * {
+    flex: 1 0 calc(25% - 20px); /* Ajusta el 25% según el número deseado de tarjetas por fila */
+    max-width: calc(25% - 20px); /* Ajusta el 25% según el número deseado de tarjetas por fila */
+  }
+  

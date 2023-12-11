@@ -1,13 +1,11 @@
 import React from 'react';
 import './Intro.scss';
-import Header from '../../../components/header/Header';
 import Menu from '../../../components/Menu/Menu';
 
 const Intro = () => {
 
   return (
     <div id='intro' className='intro-container'>
-      <Header />
       <Menu />
       <div className='intro-content'>
         <span className='intro-title'>La moda urbana que estabas buscando</span>

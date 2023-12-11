@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { setAccessToken } from '../../../store/actions/authActions';
 import { setCategories } from '../../../store/actions/categoryActions'; 
 import { obtenerTokenDeAcceso, obtenerCategorias } from '../../../services/storeManagerService';
-import Card from '../../../components/cards/CardCategory/cardCategory';
+import CardCategory from '../../../components/cards/CardCategory/cardCategory';
 import './Coleccion.scss';
 
 const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) => {
@@ -53,11 +53,11 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
   return (
     <div id="coleccion">
       {categories && categories.map(category => (
-        <Card
+        <CardCategory
           key={category.idcategoria}
           title={category.nombre}
           description={category.descripcion}
-          linkTo={`categorias-${category.idcategoria}`}
+          linkTo={`coleccion/${category.nombre}`}
           backgroundImage={category.imagen}
         />
       ))}
