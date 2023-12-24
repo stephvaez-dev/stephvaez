@@ -1,12 +1,12 @@
 import Intro from './Intro/Intro';
-import Coleccion from './Coleccion/Coleccion';
+import Colecciones from './Coleccion/Colecciones';
 import Contacto from './Contacto/Contacto';
 
 const Home = () => {
   return (
     <>
       <Intro />
-      <Coleccion />
+      <Colecciones />
       <Contacto />
     </>
   );

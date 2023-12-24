@@ -1,33 +1,40 @@
 /* CardProducto.css */
-.card {
+.card-product{
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.2s;
     height: 100%; /* La tarjeta ocupará el 100% de la altura de su contenedor padre */
     max-height: 400px; /* Altura máxima ajustable según tus necesidades */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 50px;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 10px;
   }
   
-  .card:hover {
+  .card-product:hover {
     transform: scale(1.05);
   }
   
-  .card-img {
-    width: 100%;
-    height: 60%; /* Ajusta la altura de la imagen según tus necesidades */
+  .card-img-product {
+    width: 250px;
+    height: 250px; /* Ajusta la altura de la imagen según tus necesidades */
     object-fit: cover;
   }
   
-  .card-body {
+  .card-body-product {
     padding: 16px;
   }
   
-  .card-title {
+  .card-title-product {
     font-size: 1.5rem;
     margin-bottom: 8px;
   }
   
-  .card-price {
+  .card-price-product {
     color: #4CAF50; /* Color verde para el precio */
     font-weight: bold;
   }

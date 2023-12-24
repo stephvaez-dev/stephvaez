@@ -1,0 +1,10 @@
+@import '/src/components/mixins';
+
+/* ListadoProducto.css */
+.catalogo_productos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom:5%;
+  }
+  

@@ -25,3 +25,18 @@ export async function obtenerCategorias(token) {
   }
 }
 
+export async function obtenerProductos(token){
+  try{
+    const response = await axios.post('https://storemanager.local/api/getProducts', null, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
+    return response.data;
+  }catch{
+    throw new Error('Error al obtener los productos');
+  }
+}
+

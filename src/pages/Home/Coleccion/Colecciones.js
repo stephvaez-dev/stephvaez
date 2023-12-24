@@ -5,9 +5,9 @@ import { setAccessToken } from '../../../store/actions/authActions';
 import { setCategories } from '../../../store/actions/categoryActions'; 
 import { obtenerTokenDeAcceso, obtenerCategorias } from '../../../services/storeManagerService';
 import CardCategory from '../../../components/cards/CardCategory/cardCategory';
-import './Coleccion.scss';
+import './Colecciones.scss';
 
-const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) => {
+const Colecciones = ({ accessToken, setAccessToken, categories, v }) => {
 
   const dispatch = useDispatch();
   const email = process.env.REACT_APP_EMAIL;
@@ -66,7 +66,7 @@ const Coleccion = ({ accessToken, setAccessToken, categories, setCategories }) =
 };
 
 // Define las propTypes para las props esperadas
-Coleccion.propTypes = {
+Colecciones.propTypes = {
   accessToken: PropTypes.string,
   setAccessToken: PropTypes.func,
   categories: PropTypes.array, 
@@ -84,4 +84,4 @@ const mapDispatchToProps = (dispatch) => ({
   setCategories: (categories) => dispatch(setCategories(categories))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Coleccion);
+export default connect(mapStateToProps, mapDispatchToProps)(Colecciones);
