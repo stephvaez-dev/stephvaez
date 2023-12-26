@@ -29,9 +29,7 @@ const CatalogoProducto = ({ accessToken, setAccessToken, products }) => {
         if (!accessToken) {
           const token = await obtenerTokenDeAcceso(email, password);
           dispatch(setAccessToken(token));
-          console.log(token);
           const response = await obtenerProductos(token);
-          console.log(response);
           dispatch(setProducts(response));
           setIsLoading(false);
         }
@@ -55,10 +53,7 @@ const CatalogoProducto = ({ accessToken, setAccessToken, products }) => {
     // Implementa lógica de filtrado según la categoría y el precio
     // ...
   };
-
-  console.log(products);
   
-
   return (
     <>
       <Banner texto={`Explora nuestros productos de la coleccion ${nombreCategoria}`} />
@@ -71,16 +66,23 @@ const CatalogoProducto = ({ accessToken, setAccessToken, products }) => {
         />
         {/* END FILTRO. */}
         <div className='catalogo_productos'>
-          {products && products.map(product => (
-            <CardProducto
-              key={product.idarticulo}
-              nombre={product.nombre}
-              description={product.descripcion}
-              precio={product.precio}
-              backgroundImage={product.imagen}
-          />
-          ))}
+          <ul>
+            {products &&
+              products.map(product => (
+                <li key={product.idarticulo}>
+                  <CardProducto
+                    id={product.idarticulo}
+                    nombre={product.nombre}
+                    description={product.descripcion}
+                    precio={product.precio}
+                    backgroundImage={product.imagen}
+                    linkTo={`/producto/${product.idarticulo}/${product.nombre}`}
+                  />
+                </li>
+              ))}
+          </ul>
         </div>
+
       </div>
     </>
   );

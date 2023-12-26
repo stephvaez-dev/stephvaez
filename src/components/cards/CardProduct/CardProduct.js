@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import './CardProduct.scss'; // Ajusta la ruta según tu estructura
 import { Link } from 'react-router-dom';
 
-
-const CardProduct = ({ nombre, precio, imagen, backgroundImage, linkTo }) => {
+const CardProduct = ({id, nombre, precio, imagen, backgroundImage, linkTo }) => {
 
   const cardStyle = {
     backgroundImage: `https://storemanager.local/imagenes/articulos/${backgroundImage}`,

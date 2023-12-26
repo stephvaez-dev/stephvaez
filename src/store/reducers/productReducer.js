@@ -1,7 +1,8 @@
-import { SET_PRODUCTS } from '../../constants/actionTypes';
+import { SET_PRODUCTS, OBTENER_PRODUCTO } from '../../constants/actionTypes';
 
 const initialState = {
     products: [],
+    product: [],
 };
 
 export function productReducer(state = initialState, action) {
@@ -11,6 +12,11 @@ export function productReducer(state = initialState, action) {
         ...state,
         products: action.payload,
       };
+    case OBTENER_PRODUCTO:
+      return {
+        ...state,
+        product:action.payload,
+      }
     default:
       return state;
   }
