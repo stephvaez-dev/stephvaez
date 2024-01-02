@@ -1,4 +1,4 @@
-import { SET_PRODUCTS, OBTENER_PRODUCTO } from '../../constants/actionTypes'; // Define tus propios actionTypes
+import { SET_PRODUCTS, GET_PRODUCT } from '../../constants/actionTypes'; // Define tus propios actionTypes
 
 export function setProducts (products) {
   return {
@@ -7,9 +7,9 @@ export function setProducts (products) {
   };
 };
 
-export function obtenerProductoPorId(product){
+export function getProduct(product){
   return {
-    type:OBTENER_PRODUCTO,
+    type:GET_PRODUCT,
     payload: product,
   }
 }

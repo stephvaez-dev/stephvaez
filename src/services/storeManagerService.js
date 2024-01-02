@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-export async function obtenerTokenDeAcceso(email, password) {
+export async function obtenerTokenDeAcceso(email, password) 
+{
   try {
     const loginData = { email, password };
     const response = await axios.post('https://storemanager.local/api/get-access-token', loginData);
@@ -10,7 +11,8 @@ export async function obtenerTokenDeAcceso(email, password) {
   }
 }
 
-export async function obtenerCategorias(token) {
+export async function obtenerCategorias(token) 
+{
   try {
     const response = await axios.post('https://storemanager.local/api/getCategories', null, {
       headers: {
@@ -25,7 +27,8 @@ export async function obtenerCategorias(token) {
   }
 }
 
-export async function obtenerProductos(token){
+export async function obtenerProductos(token)
+{
   try{
     const response = await axios.post('https://storemanager.local/api/getProducts', null, {
       headers: {
@@ -40,3 +43,18 @@ export async function obtenerProductos(token){
   }
 }
 
+export async function obtenerProductoPorId(token, idarticulo)
+{
+  try{
+    const response = await axios.get('https://storemanager.local/api/getProduct/'+idarticulo, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
+    return response.data;
+  }catch{
+    throw new Error('Error al obtener  producto');
+  }
+}
