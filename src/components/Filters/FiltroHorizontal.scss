@@ -6,8 +6,7 @@
     justify-content: space-around; // Centra horizontalmente
     align-items: center; // Centra verticalmente
     flex-wrap: wrap;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 35px 10px 10px 10px;
 
     @include mobile {
         flex-direction: row;

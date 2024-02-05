@@ -15,7 +15,7 @@ const CardProduct = ({id, nombre, precio, imagen, backgroundImage, linkTo }) => 
       <img className="card-img-product" src={cardStyle.backgroundImage} alt={nombre} />
       <div className="card-body-product">
         <h3 className="card-title-product">{nombre}</h3>
-        <p className="card-price-product">Precio: {precio}</p>
+        <p className="card-price-product">Precio: ${precio}</p>
         <div className='ver-detalles-buttom'>
           <Link to={linkTo} className="btn btn-primary">Ver Detalles</Link>
         </div>

@@ -1,15 +1,52 @@
 @import '/src/components/mixins';
+/* src/index.scss o src/index.css */
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* Resto de tus estilos */
+
 
 /* ListadoProducto.css */
-.catalogo_productos {
-  @include desktop{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-bottom:5%;
-      ul{
+.catalogo {
+  margin: auto;
+  margin-bottom: 10%;
+  overflow-x: hidden;
+  /* Estilos para el contenedor principal del Slider */
+  .slick-slider {
+    overflow: hidden;
+    width: 95%; 
+    height: 100%;
+    margin: 0 auto; 
+
+    /* Otros estilos personalizados */
+  }
+
+  @include mobile{
+    .catalogo{
+      display: flex;
+      margin-bottom: 5%;
+      overflow-x: hidden;
+      .lista_productos{
         display: flex;
+        flex-direction: column;
+        list-style-type: none !important;
+        li {
+          list-style-type: none !important;
+          padding-left: 0% !important;
+          margin-left: 0; /* Eliminar el margen lateral de los elementos de la lista */
+        }
+
+        li::marker {
+          display: none;
+        }
       }
     }
+
+    /* Oculta el marcador de la lista */
+  .catalogo ul li::marker {
+    display: none;
   }
+  }
+}
   

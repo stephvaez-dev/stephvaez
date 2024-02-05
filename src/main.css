@@ -1,3 +1,10 @@
+/* src/index.scss o src/index.css */
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* Resto de tus estilos */
+
 .main-container {
     height: 2000px; /* Establece la altura deseada */
     overflow-y: auto; /* Habilita el desplazamiento vertical */

@@ -1,41 +1,145 @@
+@import '/src/components/mixins';
+
 /* CardProducto.css */
-.card-product{
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s;
-    height: 100%; /* La tarjeta ocupará el 100% de la altura de su contenedor padre */
-    max-height: 400px; /* Altura máxima ajustable según tus necesidades */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 50px;
-    flex-direction: column;
-    padding-top: 40px;
-    padding-bottom: 10px;
-  }
+
+@include mobile{
+  .card-product{
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s;
+      height: 100%; /* La tarjeta ocupará el 100% de la altura de su contenedor padre */
+      max-height: 400px; /* Altura máxima ajustable según tus necesidades */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 50px;
+      flex-direction: column;
+      padding-top: 40px;
+      padding-bottom: 10px;
+      padding-left: 0;
+      .card-img-product {
+        width: 250px;
+        height: 250px; /* Ajusta la altura de la imagen según tus necesidades */
+        object-fit: cover;
+      }
+      .card-body-product {
+        padding: 16px;
+  
+        .card-title-product {
+          font-size: 1.5rem;
+          margin-bottom: 8px;
+        }
+        
+        .card-price-product {
+          color: #4CAF50; /* Color verde para el precio */
+          font-weight: bold;
+          font-size: 25px;
+        }
+  
+        .ver-detalles-buttom{
+          margin-bottom: 60px;
+          width: 84%;
+          .btn {
+            text-decoration: none;
+            font-size: 20px;
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s; /* Agregamos la propiedad box-shadow a la transición */
+            justify-content: center;
+            text-align: center;
+
+            &:hover {
+              background-color: #0056b3;
+              box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Ajusta la sombra según tus preferencias */
+            }
+          }
+        }
+      }
+    }
   
   .card-product:hover {
     transform: scale(1.05);
   }
+}
+
+@include desktop{
+  .card-product{
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s;
+      height: 100%; /* La tarjeta ocupará el 100% de la altura de su contenedor padre */
+      max-height: 400px; /* Altura máxima ajustable según tus necesidades */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 50px;
+      flex-direction: column;
+      padding-top: 40px;
+      padding-bottom: 10px;
+      padding-left: 0;
+      .card-img-product {
+        width: 250px;
+        height: 250px; /* Ajusta la altura de la imagen según tus necesidades */
+        object-fit: cover;
+      }
+      .card-body-product {
+        padding: 16px;
   
-  .card-img-product {
-    width: 250px;
-    height: 250px; /* Ajusta la altura de la imagen según tus necesidades */
-    object-fit: cover;
-  }
+        .card-title-product {
+          font-size: 1.5rem;
+          margin-bottom: 8px;
+        }
+        
+        .card-price-product {
+          color: #4CAF50; /* Color verde para el precio */
+          font-weight: bold;
+        }
   
-  .card-body-product {
-    padding: 16px;
-  }
+        .ver-detalles-buttom{
+          margin-bottom: 25px;
+          width: 84%;
+          .btn {
+            text-decoration: none;
+            font-size: 20px;
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s; /* Agregamos la propiedad box-shadow a la transición */
+            justify-content: center;
+            text-align: center;
+
+            &:hover {
+              background-color: #0056b3;
+              box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Ajusta la sombra según tus preferencias */
+            }
+          }
+        }
+      }
+    }
   
-  .card-title-product {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
+  .card-product:hover {
+    transform: scale(1.05);
   }
+}
   
-  .card-price-product {
-    color: #4CAF50; /* Color verde para el precio */
-    font-weight: bold;
-  }
+  
+  
+  
+  
+
+  
+
   
