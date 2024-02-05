@@ -18,7 +18,6 @@ const DetalleProducto = ({accessToken}) => {
 
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         if (!accessToken) {
@@ -40,6 +39,7 @@ const DetalleProducto = ({accessToken}) => {
   if (!producto) {
     return <p>Cargando...</p>; // Puedes mostrar un indicador de carga mientras se carga el producto
   }
+  
   console.log(producto);
   return (
     <div className="detalle-producto-container">
@@ -57,7 +57,12 @@ const DetalleProducto = ({accessToken}) => {
             </div>
             {/* Agrega más detalles según tus necesidades */}
           </div>
-          <button className="btn-comprar">Comprar ahora</button>
+          <button className="btn-comprar">Pagar con Mercado Pago</button>
+
+          <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+          data-preference-id="1273324264-f92cada3-65b7-4a53-a55b-af7cfb015eb6" data-source="button">
+          </script>
+
           {/* Agrega más elementos, como opciones de compra, detalles técnicos, etc. */}
         </div>
       </div>
