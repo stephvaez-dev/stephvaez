@@ -1,52 +1,40 @@
 @import '/src/components/mixins';
-/* src/index.scss o src/index.css */
-
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
-
-/* Resto de tus estilos */
-
 
 /* ListadoProducto.css */
 .catalogo {
   margin: auto;
   margin-bottom: 10%;
-  overflow-x: hidden;
+
   /* Estilos para el contenedor principal del Slider */
   .slick-slider {
-    overflow: hidden;
-    width: 95%; 
+    width: 95%;
     height: 100%;
-    margin: 0 auto; 
+    margin: 0 auto;
 
     /* Otros estilos personalizados */
   }
 
-  @include mobile{
-    .catalogo{
-      display: flex;
-      margin-bottom: 5%;
-      overflow-x: hidden;
-      .lista_productos{
-        display: flex;
-        flex-direction: column;
-        list-style-type: none !important;
-        li {
-          list-style-type: none !important;
-          padding-left: 0% !important;
-          margin-left: 0; /* Eliminar el margen lateral de los elementos de la lista */
-        }
+  @include mobile {
+    display: flex;
+    margin-bottom: 5%;
+    overflow-x: hidden;
 
-        li::marker {
-          display: none;
-        }
+    .lista_productos {
+      display: flex;
+      flex-direction: column;
+
+      .item_producto {
+        list-style-type: none !important;
+        padding-left: 0% !important;
+        margin-left: 0;
+        /* Eliminar el margen lateral de los elementos de la lista */
+      }
+
+      .item_producto::marker {
+        list-style-type: none;
+        padding-left: 0 !important;
+        display: none;
       }
     }
-
-    /* Oculta el marcador de la lista */
-  .catalogo ul li::marker {
-    display: none;
-  }
   }
 }
-  

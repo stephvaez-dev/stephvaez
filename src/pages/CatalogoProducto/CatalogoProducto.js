@@ -102,7 +102,7 @@ const CatalogoProducto = ({ accessToken, setAccessToken, products }) => {
           <ul className='lista_productos'>
             {products &&
               products.map((product) => (
-                <li key={product.idarticulo}>
+                <li className='item_producto' key={product.idarticulo}>
                   <CardProducto
                     id={product.idarticulo}
                     nombre={product.nombre}

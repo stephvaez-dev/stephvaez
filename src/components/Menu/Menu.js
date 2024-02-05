@@ -1,13 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setMenuOpen } from '../../store/actions/menuActions';  // Ajusta la importación según tu estructura de archivos
 import MenuItem from './MenuItem/MenuItem';
 import './Menu.scss';
 import cruzIcon from '../../assets/images/cruz.png';
+import arrowMenu from '../../assets/images/arrow.png';
 
 const Menu = ({ menuOpen, setMenuOpen }) => {
   const [activeItem, setActiveItem] = useState(null);
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const menuRef = useRef(null); // Ref para el elemento del menú
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        // Hacer clic fuera del menú
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [menuOpen, setMenuOpen]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,6 +78,11 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
     </>
   );
 
+  const handleArrowMouseEnter = () => {
+    if (!menuOpen) {
+      setMenuOpen(true);
+    }
+  };
 
   /**
    * El div menu tiene una clase open y closed que varia segun si el menu esta abierto o cerrado
@@ -66,26 +91,35 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
    */
 
   return (
-    <div className={`menu ${menuOpen ? 'open' : 'closed'}`}>
-      {window.innerWidth <= 768 && (
-        <div className="menu-toggle-container">
-          <button className={`menu-toggle ${menuOpen ? 'open' : 'closed'}`} onClick={() => setMenuOpen(!menuOpen)}>
-            {menuButtonIcon}
-          </button>
+    <>
+
+      {window.innerWidth > 768 && !menuOpen && (
+        <div className='arrowMenuContainer' onMouseEnter={handleArrowMouseEnter}>
+          <img src={arrowMenu} alt="Abrir" className='arrowMenu' />
         </div>
       )}
-      <ul className='menu-list'>
-        {menuItems.map((item) => (
-          <li className='item-list' key={item.id}>
-            <MenuItem
-              label={item.label}
-              isActive={activeItem === item.id}
-              onClick={() => handleItemClick(item.id, item.targetId)}
-            />
-          </li>
-        ))}
-      </ul>
-    </div>
+      
+      <div ref={menuRef} className={`menu ${menuOpen ? 'open' : 'closed'}`}>
+        {window.innerWidth <= 768 && (
+          <div className="menu-toggle-container">
+            <button className={`menu-toggle ${menuOpen ? 'open' : 'closed'}`} onClick={() => setMenuOpen(!menuOpen)}>
+              {menuButtonIcon}
+            </button>
+          </div>
+        )}
+        <ul className='menu-list'>
+          {menuItems.map((item) => (
+            <li className='item-list' key={item.id}>
+              <MenuItem
+                label={item.label}
+                isActive={activeItem === item.id}
+                onClick={() => handleItemClick(item.id, item.targetId)}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 
