@@ -1,5 +1,11 @@
 @import '/src/components/mixins';
 
+@font-face {
+  font-family: 'Adrip1';
+  src: url('../../../assets/fonts/Sister_Spray.ttf') format('truetype');
+  /* Puedes agregar otros estilos según sea necesario, como font-weight y font-style */
+}
+
 .menu-item {
   display: flex;
   align-items: center;
@@ -11,15 +17,16 @@
 
 @include desktop{
   .menu-item-label{
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
-    font-family: "Roboto", sans-serif;
-    color:white;
+    font-family: "Calibri";
+    color:black;
     transition: transform 0.2s ease-in-out; /* Agregamos una transición para suavizar el efecto */
+    text-decoration: underline;
   }
 
   .menu-item-label:hover {
-    transform: scale(1.5); /* Por ejemplo, escala el elemento al 110% al pasar el ratón sobre él */
+    transform: scale(1.1); /* Por ejemplo, escala el elemento al 110% al pasar el ratón sobre él */
   }
 
   .menu-item-label:active {

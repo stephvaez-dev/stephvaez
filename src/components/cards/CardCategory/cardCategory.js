@@ -9,7 +9,7 @@ const cardCategory = ({ title, description, linkTo, backgroundImage}) => {
   };
 
   return (
-    <div className="card" style={cardStyle}>
+    <div className="card">
       <div className="card-body">
         <span className="card-title">{title}</span>
         <span className="card-text">{description}</span>

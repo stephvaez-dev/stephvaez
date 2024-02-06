@@ -36,7 +36,7 @@
         }
     }
     @include desktop {
-        background-color: black;
+        background-color: #CCE3CC;
         color: white;
         padding: 40px 0;
         height: auto;
@@ -61,9 +61,13 @@
                 flex-direction: column; /* Apila el ícono y el texto verticalmente */
                 align-items: center; /* Centra horizontalmente el ícono y el texto */
                 margin: 10px; /* Espacio entre los elementos */
+                p{
+                    color: black;
+                }
                 .icon-social-red{
                     width: 50px;
                     height: 50px;
+                    color: black;
                 }
                 }
         }

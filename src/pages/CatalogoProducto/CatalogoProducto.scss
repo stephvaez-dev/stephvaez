@@ -18,11 +18,11 @@
     display: flex;
     margin-bottom: 5%;
     overflow-x: hidden;
-
+    justify-content: center;
     .lista_productos {
       display: flex;
       flex-direction: column;
-
+      padding-left: 0;
       .item_producto {
         list-style-type: none !important;
         padding-left: 0% !important;

@@ -64,7 +64,7 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 
   const menuItems = [
     { id: 1, label: 'INTRO', targetId: 'intro' },
-    { id: 2, label: 'COLECCIÓN', targetId: 'coleccion' },
+    { id: 2, label: 'COLECCION', targetId: 'coleccion' },
     { id: 3, label: 'CONTACTO', targetId: 'contacto' },
   ];
 
