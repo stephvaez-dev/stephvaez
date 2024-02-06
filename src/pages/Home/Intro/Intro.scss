@@ -74,6 +74,7 @@
             height: 600px;
             display: flex;
             flex-direction: column;
+            justify-content: end;
             margin-left: 5%;
             .intro-title {
                 color: white;
@@ -98,7 +99,7 @@
                 /* Color de fondo azul */
                 border: 2px solid #0074D9;
                 /* Borde redondo delicado */
-                border-radius: 10px;
+                border-radius: 10px 10px 0px 0px;
                 /* Borde redondo */
                 color: #ffffff;
                 /* Color de texto blanco */

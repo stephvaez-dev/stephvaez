@@ -1,3 +1,6 @@
+@import '/src/components/mixins';
+
+
 .footer {
     background-color: #CCE3CC;
     padding: 20px;
@@ -5,4 +8,12 @@
     justify-content: center;
     align-items: center;
     border-top: 2px solid black;
+    p{
+      @include mobile{
+        font-size: 15px;
+      }
+      @include desktop{
+        font-size: 24px;
+      }
+    }
   }

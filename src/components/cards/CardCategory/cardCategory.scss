@@ -2,71 +2,129 @@
 
 .card {
   @include desktop{
-    width: 90%;
-    height: 80%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    background-color: black;
+    background-color: rgb(184, 196, 118);
+    border: 4px solid black;
     border-radius: 20px;
     margin-bottom: 5%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    position: relative; // Necesario para el sombreado en capas
+    margin-right: 100px;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.5); // Color del sombreado
+      z-index: -1;
+    }
+
+    &::before {
+      top: 15px;
+      left: 15px;
+      box-shadow: 0 7px 12px rgba(0, 0, 0, 0.5); // Sombra más oscura
+    }
+
+    &::after {
+      bottom: 15px;
+      right: 15px;
+      box-shadow: 0 7px 12px rgba(0, 0, 0, 0.5); // Sombra más oscura
+    }
+
     .card-body{
       display: flex;
       flex-direction: column;
       margin-top: 15%;
       margin-bottom: 15%;
-      width: 30%;
+      width: 80%;
       height: 80%;
       background-color: black;
-      border: 2px solid white;
+      border: 4px solid white;
       border-radius: 20px;
+      position: relative;
+      z-index: 1; // Para colocar el contenido encima de las sombras
+
       .card-title {
         color: white;
-        font-size: 50px;
+        font-size: 30px;
         font-family: 'Calibri';
-        margin: auto;
+        //margin: auto;
         margin-top: 30px;
       }
       .card-text {
         color: white;
         font-family: 'Calibri';
-        font-size: 25px;
+        font-size: 15px;
         margin: auto;
         margin-top: 30px; 
       }
-      .ver-detalles-boton-categoria{
-        margin-bottom: 30px;
-        margin-top: 30px;
-        .btn {
-          display: inline-block;
-          width: 25%;
-          padding: 15px;
-          background-color: #007bff; // Color de fondo del botón
-          color: #fff; // Color del texto del botón
-          border: none; // Sin borde
-          border-radius: 4px; // Bordes redondeados para el botón
-          cursor: pointer;
-          transition: background-color 0.3s; // Efecto de transición al pasar el mouse
-      
-          &:hover {
-            background-color: #0056b3; // Color de fondo al pasar el mouse
-          }
+    }
+
+    .ver-detalles-boton-categoria{
+      margin-bottom: 30px;
+      margin-top: 30px;
+      .btn {
+        text-decoration: none;
+        display: inline-block;
+        width: 70%;
+        padding: 10px;
+        background-color: #007bff; // Color de fondo del botón
+        color: #fff; // Color del texto del botón
+        border: none; // Sin borde
+        border-radius: 4px; // Bordes redondeados para el botón
+        cursor: pointer;
+        transition: background-color 0.3s; // Efecto de transición al pasar el mouse
+    
+        &:hover {
+          background-color: #0056b3; // Color de fondo al pasar el mouse
         }
       }
     }
   }
 
   @include mobile{
-    width: 100%;
-    height: 600px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: 10%;
     text-align: center;
-    background-color: black;
+    background-color: rgb(184, 196, 118);
+    border: 4px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; // Necesario para el sombreado en capas
+    margin: auto;
+    margin-bottom: 10%;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.5); // Color del sombreado
+      z-index: -1;
+    }
+
+    &::before {
+      top: 15px;
+      left: 15px;
+      box-shadow: 0 7px 12px rgba(0, 0, 0, 0.5); // Sombra más oscura
+    }
+
+    &::after {
+      bottom: 15px;
+      right: 15px;
+      box-shadow: 0 7px 12px rgba(0, 0, 0, 0.5); // Sombra más oscura
+    }
     .card-body{
       display: flex;
       flex-direction: column;
-      margin-top: 55%;
+      margin-top: 5%;
       .card-title {
         color: white;
         margin: auto;
@@ -79,23 +137,24 @@
         font-size: 17px;
         margin-top: 30px;
       }
-      .ver-detalles-boton-categoria{
-        margin-bottom: 30px;
-        margin-top:30px;
-        .btn {
-          display: inline-block;
-          width: 30%;
-          padding: 15px;
-          background-color: #007bff; // Color de fondo del botón
-          color: #fff; // Color del texto del botón
-          border: none; // Sin borde
-          border-radius: 4px; // Bordes redondeados para el botón
-          cursor: pointer;
-          transition: background-color 0.3s; // Efecto de transición al pasar el mouse
-      
-          &:hover {
-            background-color: #0056b3; // Color de fondo al pasar el mouse
-          }
+    }
+
+    .ver-detalles-boton-categoria{
+      margin-bottom: 30px;
+      margin-top:30px;
+      .btn {
+        display: inline-block;
+        width: 70%;
+        padding: 10px;
+        background-color: #007bff; // Color de fondo del botón
+        color: #fff; // Color del texto del botón
+        border: none; // Sin borde
+        border-radius: 4px; // Bordes redondeados para el botón
+        cursor: pointer;
+        transition: background-color 0.3s; // Efecto de transición al pasar el mouse
+        text-decoration: none;
+        &:hover {
+          background-color: #0056b3; // Color de fondo al pasar el mouse
         }
       }
     }
